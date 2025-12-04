@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:background="#FFFFFF">
+
+    <!-- العنوان -->
+    <TextView
+        android:id="@+id/txtTitle"
+        android:text="Your Saved Plans ❤"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"/>
+
+    <!-- راديو قروب للمدن -->
+    <RadioGroup
+        android:id="@+id/radioGroupCities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="start"> <!-- هنا صار يسار -->
+
+        <RadioButton
+            android:id="@+id/radioLondon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="London"
+            android:textSize="18sp"
+            android:layout_marginBottom="20dp"/>
+
+        <RadioButton
+            android:id="@+id/radioRiyadh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Riyadh"
+            android:textSize="18sp"/>
+    </RadioGroup>
+
+
+</LinearLayout>
