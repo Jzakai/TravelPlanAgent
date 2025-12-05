@@ -95,7 +95,7 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/green_dot" />
+                        android:src="@drawable/circle_green" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -189,7 +189,7 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/green_dot" />
+                        android:src="@drawable/circle_green" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -214,7 +214,7 @@
                     android:id="@+id/spinnerDest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:prompt="select destination" />
+                    android:prompt="@string/select_destination" />
                 <!-- Flight -->
                 <TextView
                     android:layout_width="wrap_content"
@@ -283,7 +283,7 @@
                     android:id="@+id/spinnerWeather"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:prompt="select weather" />
+                    android:prompt="@string/select_weather" />
 
 
             </LinearLayout>
@@ -298,8 +298,8 @@
                 android:textStyle="bold"
                 android:padding="16dp"
                 android:layout_margin="16dp"
-                android:background="@drawable/btn_gradient"
-                android:backgroundTint="@null" />
+                android:backgroundTint="#5B3D90"
+                 />
 
 
         </LinearLayout>

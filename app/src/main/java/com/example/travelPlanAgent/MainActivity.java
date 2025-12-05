@@ -1,4 +1,4 @@
-package com.example.lastprojetriyadh;
+package com.example.travelPlanAgent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;

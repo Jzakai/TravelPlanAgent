@@ -1,4 +1,4 @@
-package com.example.lastprojetriyadh;
+package com.example.travelPlanAgent;
 
 import org.junit.Test;
 

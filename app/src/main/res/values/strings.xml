@@ -33,7 +33,7 @@
     <string name="select_cuisine">Select cuisine</string>
     <string name="select_activity">Select activity</string>
     <string name="select_weather">Select weather</string>
-
+    <string name="select_destination">Select destination</string>
     <!-- Purpose of Travel -->
     <string-array name="purpose_options">
         <item>Leisure &amp; Vacation</item>

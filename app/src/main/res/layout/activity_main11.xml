@@ -95,7 +95,7 @@
             android:id="@+id/btnBookFlight"
             android:text="Book This Flight"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#1B5E20"
+            android:backgroundTint="#5B3D90"
             android:textColor="#FFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

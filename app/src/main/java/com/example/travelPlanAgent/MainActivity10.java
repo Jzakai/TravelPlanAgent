@@ -1,4 +1,4 @@
-package com.example.lastprojetriyadh;
+package com.example.travelPlanAgent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +9,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.content.Intent;
 
-import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity10 extends AppCompatActivity {
 
     private Spinner spinnerPurpose, spinnerBudget, spinnerFlight, spinnerHotel,

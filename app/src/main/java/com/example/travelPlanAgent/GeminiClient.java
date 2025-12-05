@@ -1,8 +1,6 @@
-package com.example.lastprojetriyadh;
+package com.example.travelPlanAgent;
 
 
-
-import android.util.Log;
 
 import org.json.JSONObject;
 
