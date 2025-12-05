@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">LAST PROJETRIYADH</string>
+
+    <string name="title_wanderly">Wanderly</string>
+    <string name="subtitle">Plan your perfect journey with personalized travel recommendations tailored to your preferences</string>
+
+    <string name="flights">Flights</string>
+    <string name="hotels">Hotels</string>
+    <string name="cuisine">Cuisine</string>
+    <string name="activities">Activities</string>
+    <string name="weather">Weather</string>
+
+    <string name="trip_details">Trip Details</string>
+    <string name="purpose_of_travel">Purpose of Travel</string>
+    <string name="duration_days">Duration (days)</string>
+    <string name="num_travelers">Number of Travelers</string>
+    <string name="budget_range">Budget Range</string>
+
+    <string name="your_preferences">Your Preferences</string>
+    <string name="flight_pref">Flight Preference</string>
+    <string name="hotel_pref">Hotel Preference</string>
+    <string name="cuisine_pref">Cuisine Preference</string>
+    <string name="activity_pref">Activity Preference</string>
+    <string name="weather_pref">Weather Preference</string>
+
+    <string name="find_my_perfect_trip">Find My Perfect Trip</string>
+
+    <!-- Spinner hints -->
+    <string name="select_purpose">Select purpose</string>
+    <string name="select_budget_range">Select budget range</string>
+    <string name="select_class">Select class</string>
+    <string name="select_type">Select type</string>
+    <string name="select_cuisine">Select cuisine</string>
+    <string name="select_activity">Select activity</string>
+    <string name="select_weather">Select weather</string>
+
+    <!-- Purpose of Travel -->
+    <string-array name="purpose_options">
+        <item>Leisure &amp; Vacation</item>
+        <item>Business</item>
+        <item>Adventure</item>
+        <item>Cultural Experience</item>
+        <item>Relaxation &amp; Wellness</item>
+        <item>Family Trip</item>
+    </string-array>
+
+    <!-- Budget Range -->
+    <string-array name="budget_options">
+        <item>Budget ($0 - $1,000)</item>
+        <item>Moderate ($1,000 - $3,000)</item>
+        <item>Comfortable ($3,000 - $6,000)</item>
+        <item>Luxury ($6,000+)</item>
+    </string-array>
+
+    <!-- Flight Class -->
+    <string-array name="flight_class_options">
+        <item>Economy</item>
+        <item>Premium Economy</item>
+        <item>Business Class</item>
+        <item>First Class</item>
+    </string-array>
+
+    <!-- Hotel Type -->
+    <string-array name="hotel_type_options">
+        <item>Hostel</item>
+        <item>3-star Hotel</item>
+        <item>4-star Hotel</item>
+        <item>5-star Hotel</item>
+        <item>Resort</item>
+        <item>Boutique Hotel</item>
+    </string-array>
+
+    <!-- Cuisine Preference -->
+    <string-array name="cuisine_options">
+        <item>Local &amp; Authentic</item>
+        <item>International</item>
+        <item>Fine Dining</item>
+        <item>Street Food</item>
+        <item>Vegetarian/Vegan</item>
+        <item>Diverse &amp; Adventurous</item>
+    </string-array>
+
+    <!-- Activity Preference -->
+    <string-array name="activity_options">
+        <item>Relaxation &amp; Beach</item>
+        <item>Sightseeing &amp; Culture</item>
+        <item>Adventure &amp; Sport</item>
+        <item>Nature &amp; Wildlife</item>
+        <item>Nightlife &amp; Entertainment</item>
+        <item>Shopping &amp; Urban</item>
+    </string-array>
+
+    <!-- Weather Preference -->
+    <string-array name="weather_options">
+        <item>Tropical &amp; Warm</item>
+        <item>Temperate &amp; Mild</item>
+        <item>Cold &amp; Snowy</item>
+        <item>Dry &amp; Desert</item>
+        <item>Flexible / No Preference</item>
+    </string-array>
+
+    <string-array name="city_options">
+        <item>Riyadh</item>
+        <item>Jeddah</item>
+        <item>taif</item>
+        <item>Aseer</item>
+        <item>Al Ula</item>
+    </string-array>
+</resources>

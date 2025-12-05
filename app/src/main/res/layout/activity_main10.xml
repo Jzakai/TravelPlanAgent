@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@drawable/header_gradient_green"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NaviAir"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Exlore and plan your perfect journey with personalized travel recommendations tailored to your preferences"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <!-- Icons Row -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_flight" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_hotel" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_food" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- TRIP DETAILS CARD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@drawable/card_rounded"
+                android:elevation="2dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/green_dot" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Trip Details"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333" />
+
+                </LinearLayout>
+
+                <!-- Purpose of Travel -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Purpose of Travel"
+                    android:textColor="#555555" />
+
+                <Spinner
+                    android:id="@+id/spinnerPurpose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="e.g., 7"
+                    android:prompt="@string/select_purpose" />
+
+                <!-- Duration -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Duration (days)"
+                    android:textColor="#555555" />
+
+                <EditText
+                    android:id="@+id/etDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="e.g., 7"
+                    android:inputType="number" />
+
+
+                <!-- Travelers -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Number of Travelers"
+                    android:textColor="#555555" />
+
+                <EditText
+                    android:id="@+id/etTravelers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="e.g., 2"
+                    android:inputType="number" />
+
+                <!-- Budget -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Budget Range"
+                    android:textColor="#555555" />
+
+                <Spinner
+                    android:id="@+id/spinnerBudget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/select_budget_range" />
+
+            </LinearLayout>
+
+            <!-- PREFERENCES CARD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@drawable/card_rounded"
+                android:elevation="2dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/green_dot" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Your Preferences"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333" />
+
+                </LinearLayout>
+
+                <!-- destination -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Destination"
+                    android:textColor="#555555" />
+
+                <Spinner
+                    android:id="@+id/spinnerDest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="select destination" />
+                <!-- Flight -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Flight Preference"
+                    android:textColor="#555555" />
+
+                <Spinner
+                    android:id="@+id/spinnerFlight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/select_class" />
+
+                <!-- Hotel -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Hotel Preference"
+                    android:textColor="#555555" />
+
+                <Spinner
+                    android:id="@+id/spinnerHotel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/select_type" />
+
+                <!-- Cuisine -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Cuisine Preference"
+                    android:textColor="#555555" />
+
+                <Spinner
+                    android:id="@+id/spinnerCuisine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/select_cuisine" />
+
+                <!-- Activity -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Activity Preference"
+                    android:textColor="#555555" />
+
+                <Spinner
+                    android:id="@+id/spinnerActivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/select_activity" />
+
+                <!-- Weather -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Weather Preference"
+                    android:textColor="#555555" />
+
+                <Spinner
+                    android:id="@+id/spinnerWeather"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="select weather" />
+
+
+            </LinearLayout>
+
+            <!-- FIND TRIP BUTTON -->
+            <Button
+                android:id="@+id/btnFindTrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Find My Perfect Trip"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:padding="16dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/btn_gradient"
+                android:backgroundTint="@null" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

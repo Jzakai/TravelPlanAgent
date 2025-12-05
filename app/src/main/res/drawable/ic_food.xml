@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Fork -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M7,2h1v10H7V2zm3,0h1v10h-1V2zM13,2h1v10h-1V2z"/>
+
+    <!-- Knife -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M17,2h1v10h-1V2z"/>
+
+    <!-- Plate base (optional small arc for context) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,14c-1.1,0-2,.9-2,2s.9,2 2,2 2-.9 2-2-.9-2-2-2z"/>
+</vector>
