@@ -12,7 +12,7 @@ import java.net.URL;
 
 public class GeminiClient {
 
-    private static final String API_KEY = "AIzaSyCLwkT3U4cKq_4wkW-vOQ67IemsE99ELmU";
+    private static final String API_KEY = "AIzaSyDBkEMcuOb3ntX3b4fcHpY-4EBqI3UeN2k";
 
     public interface GeminiCallback {
         void onResponse(String text);

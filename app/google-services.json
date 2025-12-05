@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "846713543672",
+    "project_id": "travel-plan-agent",
+    "storage_bucket": "travel-plan-agent.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846713543672:android:7c629f8b2df8948860d40d",
+        "android_client_info": {
+          "package_name": "com.example.travelPlanAgent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpe8FaU1mfyZFMN9EjpAlsMg46uZXr9nE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

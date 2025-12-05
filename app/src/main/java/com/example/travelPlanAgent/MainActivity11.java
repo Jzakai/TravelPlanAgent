@@ -60,7 +60,11 @@ public class MainActivity11 extends AppCompatActivity {
         btnBookFlight.setOnClickListener(v -> {
             String flightUrl = "http://google.com/travel/flights";
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(flightUrl));
-            startActivity(browserIntent);
+            try {
+                startActivity(browserIntent);
+            } catch (android.content.ActivityNotFoundException e) {
+                Toast.makeText(MainActivity11.this, "No browser found to handle this request.", Toast.LENGTH_LONG).show();
+            }
         });
     }
 
