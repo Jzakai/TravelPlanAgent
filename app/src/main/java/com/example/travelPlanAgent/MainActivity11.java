@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +46,12 @@ public class MainActivity11 extends AppCompatActivity {
             tvHotels.setText(getIntent().getStringExtra("hotels"));
         } else {
             String prompt = getIntent().getStringExtra("PROMPT");
+            String dest = getIntent().getStringExtra("DESTINATION");
+
+            if (dest != null) {
+                tvDestinationTitle.setText("Trip to " + dest);
+            }
+
             if (prompt == null || prompt.isEmpty()) {
                 prompt = "Create a travel plan...";
             }
@@ -100,6 +105,9 @@ public class MainActivity11 extends AppCompatActivity {
     }
 
     private void savePlanToFirestore(String summary, String dayPlan, String restaurants, String activities, String flight, String hotels) {
+        String destination = getIntent().getStringExtra("DESTINATION");
+        String duration = getIntent().getStringExtra("DURATION");
+
         Map<String, Object> tripData = new HashMap<>();
         tripData.put("summary", summary);
         tripData.put("dayPlan", dayPlan);
@@ -107,6 +115,8 @@ public class MainActivity11 extends AppCompatActivity {
         tripData.put("activities", activities);
         tripData.put("flight", flight);
         tripData.put("hotels", hotels);
+        tripData.put("destination", destination != null ? destination : "Unknown");
+        tripData.put("duration", duration != null ? duration : "0");
         tripData.put("timestamp", System.currentTimeMillis());
 
         db.collection("plans")

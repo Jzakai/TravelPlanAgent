@@ -21,7 +21,6 @@ public class MainActivity10 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main10);
 
-        // Initialize Views
         spinnerPurpose = findViewById(R.id.spinnerPurpose);
         spinnerBudget = findViewById(R.id.spinnerBudget);
         spinnerFlight = findViewById(R.id.spinnerFlight);
@@ -30,14 +29,12 @@ public class MainActivity10 extends AppCompatActivity {
         spinnerActivity = findViewById(R.id.spinnerActivity);
         spinnerWeather = findViewById(R.id.spinnerWeather);
         spinnerDestination = findViewById(R.id.spinnerDest);
-        
 
         etDuration = findViewById(R.id.etDuration);
         etTravelers = findViewById(R.id.etTravelers);
 
         btnFindTrip = findViewById(R.id.btnFindTrip);
 
-        // Set up Spinners
         setupSpinner(spinnerPurpose, R.array.purpose_options, "Select purpose");
         setupSpinner(spinnerBudget, R.array.budget_options, "Select budget range");
         setupSpinner(spinnerFlight, R.array.flight_class_options, "Select class");
@@ -47,12 +44,10 @@ public class MainActivity10 extends AppCompatActivity {
         setupSpinner(spinnerWeather, R.array.weather_options, "Select weather");
         setupSpinner(spinnerDestination, R.array.city_options, "Select destination");
 
-        // Button click
         btnFindTrip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                // ✅ Collect values
                 String destination = spinnerDestination.getSelectedItem().toString();
                 String purpose = spinnerPurpose.getSelectedItem().toString();
                 String budget = spinnerBudget.getSelectedItem().toString();
@@ -65,7 +60,6 @@ public class MainActivity10 extends AppCompatActivity {
                 String duration = etDuration.getText().toString();
                 String travelers = etTravelers.getText().toString();
 
-                // ✅ Validation
                 if (duration.isEmpty() || travelers.isEmpty()) {
                     Toast.makeText(MainActivity10.this,
                             "Please fill in duration and number of travelers",
@@ -73,11 +67,9 @@ public class MainActivity10 extends AppCompatActivity {
                     return;
                 }
 
-                // ✅ ✅ ✅ STRUCTURED AI PROMPT
                 String prompt =
                         "You are a strict JSON-style travel planner.\n" +
-                                "Create a travel plan for" + destination + " with these preferences:\n\n" +
-
+                                "Create a travel plan for " + destination + " with these preferences:\n\n" +
                                 "Purpose: " + purpose + "\n" +
                                 "Budget: " + budget + "\n" +
                                 "Flight: " + flight + "\n" +
@@ -87,38 +79,31 @@ public class MainActivity10 extends AppCompatActivity {
                                 "Weather: " + weather + "\n" +
                                 "Duration: " + duration + " days\n" +
                                 "Travelers: " + travelers + "\n\n" +
-
                                 "IMPORTANT: You MUST respond USING THIS EXACT FORMAT ONLY.\n" +
                                 "DO NOT add introductions. DO NOT add markdown. DO NOT add stars.\n\n" +
-
                                 "SUMMARY:\n<one paragraph>\n\n" +
-
                                 "DAY PLAN:\n" +
                                 "Day 1 - ...\n" +
                                 "Day 2 - ...\n\n" +
-
                                 "RESTAURANTS:\n" +
                                 "- Restaurant 1\n" +
                                 "- Restaurant 2\n\n" +
-
                                 "ACTIVITIES & EVENTS:\n" +
                                 "- Activity 1\n" +
                                 "- Event 1\n\n" +
-
                                 "FLIGHT:\n" +
                                 "- Flight option from Riyadh\n\n" +
-
                                 "HOTELS:\n" +
                                 "- Hotel 1\n" +
                                 "- Hotel 2\n";
 
-                // ✅ ✅ ✅ SEND PROMPT TO AI RESULT SCREEN
                 Intent intent = new Intent(MainActivity10.this, MainActivity11.class);
                 intent.putExtra("PROMPT", prompt);
+                intent.putExtra("DESTINATION", destination);
+                intent.putExtra("DURATION", duration);
                 startActivity(intent);
             }
         });
-
     }
 
     private void setupSpinner(Spinner spinner, int arrayResId, String hint) {
@@ -129,8 +114,6 @@ public class MainActivity10 extends AppCompatActivity {
         );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
-        // Add hint as first item (optional)
         spinner.setSelection(0);
     }
 }

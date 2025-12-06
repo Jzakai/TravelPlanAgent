@@ -34,10 +34,8 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
     public void onBindViewHolder(@NonNull PlanViewHolder holder, int position) {
         PlanModel plan = planList.get(position);
 
-        String title = plan.getSummary();
-        if (title != null && title.length() > 60) title = title.substring(0, 60) + "...";
-
-        holder.tvSummary.setText(title != null ? title : "No Details");
+        holder.tvDestination.setText(plan.getDestination());
+        holder.tvDuration.setText(plan.getDuration() + " Days");
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, hh:mm a", Locale.getDefault());
         holder.tvDate.setText(sdf.format(new Date(plan.getTimestamp())));
@@ -56,13 +54,17 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
     }
 
     @Override
-    public int getItemCount() { return planList.size(); }
+    public int getItemCount() {
+        return planList.size();
+    }
 
     public static class PlanViewHolder extends RecyclerView.ViewHolder {
-        TextView tvSummary, tvDate;
+        TextView tvDestination, tvDuration, tvDate;
+
         public PlanViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvSummary = itemView.findViewById(R.id.tvPlanSummary);
+            tvDestination = itemView.findViewById(R.id.tvDestination);
+            tvDuration = itemView.findViewById(R.id.tvDuration);
             tvDate = itemView.findViewById(R.id.tvPlanDate);
         }
     }
