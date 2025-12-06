@@ -1,7 +1,7 @@
 package com.example.travelPlanAgent;
 
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -15,7 +15,8 @@ import java.util.Map;
 public class MainActivity11 extends AppCompatActivity {
 
     TextView tvSummary, tvPlan, tvRestaurants, tvActivities, tvFlight, tvHotels, tvDestinationTitle;
-    Button btnBookFlight;
+    TextView tvGoToSaved;
+    Button btnSavePlan;
     FirebaseFirestore db;
 
     @Override
@@ -32,7 +33,10 @@ public class MainActivity11 extends AppCompatActivity {
         tvFlight = findViewById(R.id.tvFlight);
         tvHotels = findViewById(R.id.tvHotels);
         tvDestinationTitle = findViewById(R.id.tvDestinationTitle);
-        btnBookFlight = findViewById(R.id.btnBookFlight);
+        btnSavePlan = findViewById(R.id.btnSavePlan);
+        tvGoToSaved = findViewById(R.id.tvGoToSaved);
+
+        tvGoToSaved.setPaintFlags(tvGoToSaved.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         boolean isViewMode = getIntent().getBooleanExtra("isViewMode", false);
 
@@ -44,6 +48,8 @@ public class MainActivity11 extends AppCompatActivity {
             tvActivities.setText(getIntent().getStringExtra("activities"));
             tvFlight.setText(getIntent().getStringExtra("flight"));
             tvHotels.setText(getIntent().getStringExtra("hotels"));
+            btnSavePlan.setVisibility(android.view.View.GONE);
+            tvGoToSaved.setVisibility(android.view.View.GONE);
         } else {
             String prompt = getIntent().getStringExtra("PROMPT");
             String dest = getIntent().getStringExtra("DESTINATION");
@@ -62,14 +68,22 @@ public class MainActivity11 extends AppCompatActivity {
             );
         }
 
-        btnBookFlight.setOnClickListener(v -> {
-            String flightUrl = "http://google.com/travel/flights";
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(flightUrl));
-            try {
-                startActivity(browserIntent);
-            } catch (android.content.ActivityNotFoundException e) {
-                Toast.makeText(MainActivity11.this, "No browser found to handle this request.", Toast.LENGTH_LONG).show();
-            }
+        btnSavePlan.setOnClickListener(v -> {
+            Toast.makeText(MainActivity11.this, "Saving plan...", Toast.LENGTH_SHORT).show();
+
+            String summary = tvSummary.getText().toString();
+            String dayPlan = tvPlan.getText().toString();
+            String restaurants = tvRestaurants.getText().toString();
+            String activities = tvActivities.getText().toString();
+            String flight = tvFlight.getText().toString();
+            String hotels = tvHotels.getText().toString();
+
+            savePlanToFirestore(summary, dayPlan, restaurants, activities, flight, hotels);
+        });
+
+        tvGoToSaved.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity11.this, MainActivity9.class);
+            startActivity(intent);
         });
     }
 
@@ -94,8 +108,6 @@ public class MainActivity11 extends AppCompatActivity {
             tvActivities.setText(activities);
             tvFlight.setText(flight);
             tvHotels.setText(hotels);
-
-            savePlanToFirestore(summary, dayPlan, restaurants, activities, flight, hotels);
 
         } catch (Exception e) {
             tvSummary.setText("AI response could not be organized.");
@@ -122,10 +134,10 @@ public class MainActivity11 extends AppCompatActivity {
         db.collection("plans")
                 .add(tripData)
                 .addOnSuccessListener(documentReference -> {
-                    Toast.makeText(MainActivity11.this, "Trip Plan Saved! ✅", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity11.this, "Trip Plan Saved Successfully!", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(MainActivity11.this, "Failed to save plan ❌", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity11.this, "Failed to save plan", Toast.LENGTH_SHORT).show();
                     Log.e("Firebase", "Error adding document", e);
                 });
     }
