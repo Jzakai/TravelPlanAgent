@@ -10,7 +10,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity9 extends AppCompatActivity {
+public class TravelPlanList extends AppCompatActivity {
 
     RecyclerView recyclerView;
     PlanAdapter adapter;
@@ -20,7 +20,7 @@ public class MainActivity9 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main9);
+        setContentView(R.layout.travel_plan_list);
 
         recyclerView = findViewById(R.id.recyclerViewPlans);
         if (recyclerView == null) {

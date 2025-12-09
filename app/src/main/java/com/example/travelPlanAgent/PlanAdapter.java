@@ -14,15 +14,12 @@ import java.util.List;
 import java.util.Locale;
 
 public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder> {
-
     private Context context;
     private List<PlanModel> planList;
-
     public PlanAdapter(Context context, List<PlanModel> planList) {
         this.context = context;
         this.planList = planList;
     }
-
     @NonNull
     @Override
     public PlanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,7 +38,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
         holder.tvDate.setText(sdf.format(new Date(plan.getTimestamp())));
 
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, MainActivity11.class);
+            Intent intent = new Intent(context, PlanPage.class);
             intent.putExtra("isViewMode", true);
             intent.putExtra("summary", plan.getSummary());
             intent.putExtra("dayPlan", plan.getDayPlan());
@@ -57,10 +54,8 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
     public int getItemCount() {
         return planList.size();
     }
-
     public static class PlanViewHolder extends RecyclerView.ViewHolder {
         TextView tvDestination, tvDuration, tvDate;
-
         public PlanViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDestination = itemView.findViewById(R.id.tvDestination);

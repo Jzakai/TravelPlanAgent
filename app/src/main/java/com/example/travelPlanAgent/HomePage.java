@@ -9,7 +9,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.content.Intent;
 
-public class MainActivity10 extends AppCompatActivity {
+public class HomePage extends AppCompatActivity {
 
     private Spinner spinnerPurpose, spinnerBudget, spinnerFlight, spinnerHotel,
             spinnerCuisine, spinnerActivity, spinnerWeather, spinnerDestination;
@@ -19,7 +19,7 @@ public class MainActivity10 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main10);
+        setContentView(R.layout.home_page);
 
         spinnerPurpose = findViewById(R.id.spinnerPurpose);
         spinnerBudget = findViewById(R.id.spinnerBudget);
@@ -61,7 +61,7 @@ public class MainActivity10 extends AppCompatActivity {
                 String travelers = etTravelers.getText().toString();
 
                 if (duration.isEmpty() || travelers.isEmpty()) {
-                    Toast.makeText(MainActivity10.this,
+                    Toast.makeText(HomePage.this,
                             "Please fill in duration and number of travelers",
                             Toast.LENGTH_SHORT).show();
                     return;
@@ -97,7 +97,7 @@ public class MainActivity10 extends AppCompatActivity {
                                 "- Hotel 1\n" +
                                 "- Hotel 2\n";
 
-                Intent intent = new Intent(MainActivity10.this, MainActivity11.class);
+                Intent intent = new Intent(HomePage.this, PlanPage.class);
                 intent.putExtra("PROMPT", prompt);
                 intent.putExtra("DESTINATION", destination);
                 intent.putExtra("DURATION", duration);

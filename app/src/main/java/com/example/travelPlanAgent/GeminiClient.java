@@ -1,7 +1,4 @@
 package com.example.travelPlanAgent;
-
-
-
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -70,14 +67,10 @@ public class GeminiClient {
     private static String parseGeminiResponse(String json) {
         try {
             JSONObject obj = new JSONObject(json);
-
-            // ✅ If Gemini returned an ERROR instead of candidates
             if (obj.has("error")) {
                 JSONObject error = obj.getJSONObject("error");
                 return "Gemini Error: " + error.getString("message");
             }
-
-            // ✅ Normal success response
             return obj.getJSONArray("candidates")
                     .getJSONObject(0)
                     .getJSONObject("content")

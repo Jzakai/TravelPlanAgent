@@ -12,7 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity11 extends AppCompatActivity {
+public class PlanPage extends AppCompatActivity {
 
     TextView tvSummary, tvPlan, tvRestaurants, tvActivities, tvFlight, tvHotels, tvDestinationTitle;
     TextView tvGoToSaved;
@@ -22,7 +22,7 @@ public class MainActivity11 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main11);
+        setContentView(R.layout.plan_page);
 
         db = FirebaseFirestore.getInstance();
 
@@ -69,7 +69,7 @@ public class MainActivity11 extends AppCompatActivity {
         }
 
         btnSavePlan.setOnClickListener(v -> {
-            Toast.makeText(MainActivity11.this, "Saving plan...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PlanPage.this, "Saving plan...", Toast.LENGTH_SHORT).show();
 
             String summary = tvSummary.getText().toString();
             String dayPlan = tvPlan.getText().toString();
@@ -82,7 +82,7 @@ public class MainActivity11 extends AppCompatActivity {
         });
 
         tvGoToSaved.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity11.this, MainActivity9.class);
+            Intent intent = new Intent(PlanPage.this, TravelPlanList.class);
             startActivity(intent);
         });
     }
@@ -134,10 +134,10 @@ public class MainActivity11 extends AppCompatActivity {
         db.collection("plans")
                 .add(tripData)
                 .addOnSuccessListener(documentReference -> {
-                    Toast.makeText(MainActivity11.this, "Trip Plan Saved Successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PlanPage.this, "Trip Plan Saved Successfully!", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(MainActivity11.this, "Failed to save plan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PlanPage.this, "Failed to save plan", Toast.LENGTH_SHORT).show();
                     Log.e("Firebase", "Error adding document", e);
                 });
     }

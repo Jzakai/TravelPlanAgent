@@ -2,13 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green_700">#1F0745</color>
-    <color name="green_600">#360F7A</color>
-    <color name="green_100">#451295</color>
+    <color name="purple_700">#1F0745</color>
+    <color name="purple_600">#360F7A</color>
+    <color name="purple_100">#451295</color>
     <color name="bg_page">#F3F5F4</color>
     <color name="card_bg">#FFFFFF</color>
     <color name="muted_text">#616161</color>
     <color name="black_text">#111111</color>
-    <!-- Button accent (kept neutral blue) -->
     <color name="accent_blue">#4B6BFF</color>
 </resources>

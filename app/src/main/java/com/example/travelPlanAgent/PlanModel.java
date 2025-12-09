@@ -17,7 +17,6 @@ public class PlanModel {
         this.duration = duration;
         this.timestamp = timestamp;
     }
-
     public String getSummary() { return summary; }
     public String getDayPlan() { return dayPlan; }
     public String getRestaurants() { return restaurants; }
