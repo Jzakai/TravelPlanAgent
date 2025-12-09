@@ -7,6 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,11 +20,21 @@ public class TravelPlanList extends AppCompatActivity {
     PlanAdapter adapter;
     List<PlanModel> planList;
     FirebaseFirestore db;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.travel_plan_list);
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser == null) {
+            Toast.makeText(this, "You must log in to view saved plans.", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
 
         recyclerView = findViewById(R.id.recyclerViewPlans);
         if (recyclerView == null) {
@@ -34,12 +48,13 @@ public class TravelPlanList extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         db = FirebaseFirestore.getInstance();
-        fetchPlans();
+        fetchPlans(currentUser.getUid());
     }
 
-    private void fetchPlans() {
+    private void fetchPlans(String userId) {
         db.collection("plans")
-                .orderBy("timestamp", com.google.firebase.firestore.Query.Direction.DESCENDING)
+                .whereEqualTo("userId", userId)
+                .orderBy("timestamp", Query.Direction.DESCENDING)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     planList.clear();

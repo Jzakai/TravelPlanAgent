@@ -9,6 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +20,7 @@ public class PlanPage extends AppCompatActivity {
     TextView tvGoToSaved;
     Button btnSavePlan;
     FirebaseFirestore db;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,7 @@ public class PlanPage extends AppCompatActivity {
         setContentView(R.layout.plan_page);
 
         db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         tvSummary = findViewById(R.id.tvAISummary);
         tvPlan = findViewById(R.id.tvItinerary);
@@ -69,6 +73,12 @@ public class PlanPage extends AppCompatActivity {
         }
 
         btnSavePlan.setOnClickListener(v -> {
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            if (currentUser == null) {
+                Toast.makeText(PlanPage.this, "Please log in first to save the travel plan.", Toast.LENGTH_LONG).show();
+                return;
+            }
+
             Toast.makeText(PlanPage.this, "Saving plan...", Toast.LENGTH_SHORT).show();
 
             String summary = tvSummary.getText().toString();
@@ -78,7 +88,7 @@ public class PlanPage extends AppCompatActivity {
             String flight = tvFlight.getText().toString();
             String hotels = tvHotels.getText().toString();
 
-            savePlanToFirestore(summary, dayPlan, restaurants, activities, flight, hotels);
+            savePlanToFirestore(summary, dayPlan, restaurants, activities, flight, hotels, currentUser.getUid());
         });
 
         tvGoToSaved.setOnClickListener(v -> {
@@ -116,7 +126,7 @@ public class PlanPage extends AppCompatActivity {
         }
     }
 
-    private void savePlanToFirestore(String summary, String dayPlan, String restaurants, String activities, String flight, String hotels) {
+    private void savePlanToFirestore(String summary, String dayPlan, String restaurants, String activities, String flight, String hotels, String userId) {
         String destination = getIntent().getStringExtra("DESTINATION");
         String duration = getIntent().getStringExtra("DURATION");
 
@@ -130,6 +140,7 @@ public class PlanPage extends AppCompatActivity {
         tripData.put("destination", destination != null ? destination : "Unknown");
         tripData.put("duration", duration != null ? duration : "0");
         tripData.put("timestamp", System.currentTimeMillis());
+        tripData.put("userId", userId);
 
         db.collection("plans")
                 .add(tripData)

@@ -1,12 +1,12 @@
 package com.example.travelPlanAgent;
 
 public class PlanModel {
-    private String summary, dayPlan, restaurants, activities, flight, hotels, destination, duration;
+    private String summary, dayPlan, restaurants, activities, flight, hotels, destination, duration, userId;
     private long timestamp;
 
     public PlanModel() {}
 
-    public PlanModel(String summary, String dayPlan, String restaurants, String activities, String flight, String hotels, String destination, String duration, long timestamp) {
+    public PlanModel(String summary, String dayPlan, String restaurants, String activities, String flight, String hotels, String destination, String duration, long timestamp, String userId) {
         this.summary = summary;
         this.dayPlan = dayPlan;
         this.restaurants = restaurants;
@@ -16,6 +16,7 @@ public class PlanModel {
         this.destination = destination;
         this.duration = duration;
         this.timestamp = timestamp;
+        this.userId = userId;
     }
     public String getSummary() { return summary; }
     public String getDayPlan() { return dayPlan; }
@@ -26,4 +27,5 @@ public class PlanModel {
     public String getDestination() { return destination; }
     public String getDuration() { return duration; }
     public long getTimestamp() { return timestamp; }
+    public String getUserId() { return userId; }
 }
