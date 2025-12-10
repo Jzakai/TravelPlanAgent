@@ -104,7 +104,7 @@
             android:textStyle="bold"
             android:padding="16dp"
             android:layout_margin="16dp"
-            android:backgroundTint="#5B3D90"
+            android:backgroundTint="#5A3B90"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -116,7 +116,6 @@
             android:textStyle="bold"
             android:gravity="center"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

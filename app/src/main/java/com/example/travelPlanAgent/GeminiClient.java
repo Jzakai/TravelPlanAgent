@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class GeminiClient {
 
-    private static final String API_KEY = "";
+    private static final String API_KEY = "AIzaSyB6y43Yjh4ITRE_29leYL7kFa7uOaCPvvw";
 
     public interface GeminiCallback {
         void onResponse(String text);
